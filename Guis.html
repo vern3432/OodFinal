@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GUIs Study Guide</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+    h2 {
+      color: #333;
+    }
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    li {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h2>GUIs Study Guide</h2>
+  <ul>
+    <li>
+      <strong>Understand all the components:</strong> Buttons, text fields and areas, combo boxes, lists, radio buttons, checkboxes, scroll panes, frames, panels, etc.
+    </li>
+    <li>
+      <strong>Understand event-driven programming and registering listeners to components.</strong>
+      <p>Event-driven programming involves writing code that responds to events triggered by user interactions with components. Listeners are registered to components to handle these events.</p>
+    </li>
+    <li>
+      <strong>Understand the different types of listeners and know what components use what listeners.</strong>
+      <p>There are various types of listeners in Java, such as ActionListener, ItemListener, MouseListener, KeyListener, etc. Different components use different listeners based on the type of event they need to handle.</p>
+    </li>
+    <li>
+      <strong>Understand how to use layout managers:</strong>
+      <ul>
+        <li>FlowLayout</li>
+        <li>GridLayout</li>
+        <li>CardLayout</li>
+        <li>BorderLayout</li>
+        <li>GridBagLayout</li>
+      </ul>
+    </li>
+    <li>
+      <strong>Understand Keyboard and Mouse events and how to incorporate them into your GUIs.</strong>
+      <p>Keyboard and mouse events are essential for user interaction in GUIs. They can be handled by implementing listeners such as KeyListener and MouseListener.</p>
+    </li>
+    <li>
+      <strong>Understand basic Java 2D Graphics:</strong>
+      <p>Java 2D Graphics involve using the paintComponent method and the Graphics object to draw shapes, images, and text on a component.</p>
+    </li>
+  </ul>
+  <!-- Example code -->
+  <h2>Example Code:</h2>
+  <pre>
+    <code>
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class MyGUI extends JFrame {
+    private JButton button;
+    private JTextField textField;
+    
+    public MyGUI() {
+        setTitle("My GUI");
+        setSize(300, 200);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        // Initialize components
+        button = new JButton("Click Me");
+        textField = new JTextField(20);
+        
+        // Add components to the frame
+        setLayout(new FlowLayout());
+        add(button);
+        add(textField);
+        
+        // Register event listeners
+        button.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                String text = textField.getText();
+                JOptionPane.showMessageDialog(MyGUI.this, "You typed: " + text);
+            }
+        });
+    }
+    
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                MyGUI gui = new MyGUI();
+                gui.setVisible(true);
+            }
+        });
+    }
+}
+    </code>
+  </pre>
+</body>
+</html>

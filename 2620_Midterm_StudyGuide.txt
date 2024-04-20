@@ -1,0 +1,57 @@
+Version Control:
+- Understand what the basic work flow is (stage, commit, push, pull)
+- Understand basic git commands (including checkout, clone, status, diff, merge, branch, and the ones above)
+- Understand what .gitignore does
+- Be able to solve basic git problems (merge conflicts) 
+
+GUIs:
+- Understand all the components (buttons, text fields and areas, combo boxes, lists, radio buttons, checkboxes, scroll panes, frames, panels, etc.)
+- Understand event-driven programming and registering listeners to components
+- Understand the different types of listeners and know what components use what listeners
+- Understand how to use FlowLayout, GridLayout, CardLayout, BorderLayout, and GridBagLayout
+- Understand Keyboard and Mouse events and how to incorporate them into your GUIs
+- Understand basic Java 2D Graphics (the use of the paintComponent method and the Graphics object, specifically)
+
+Design Patterns:
+- Understand the format/use cases of the design patterns presented by students
+  - Model-View-Controller
+  - Adapter
+  - Bridge
+  - Builder
+  - Decorator
+  - Singleton
+  - Factory
+  - Lazy Initialization
+  - Iterator
+  - Null Object
+  - Object Pool
+  - Proxy
+  - Template Method
+  
+UI Design:
+- Understand section 4.1, the list of golden rules for UI design
+
+UML and Design:
+- Understand (exact) UML syntax
+- Understand class relationships and how they are used (including inheritance, and the difference between aggregation and composition)
+- Understand good design principles, including breaking the problem into an interaction of objects, keeping objects as small as possible
+- Have a basic understanding of the process and purpose of the process outlined in Unit 6
+
+Threads, Sockets:
+- Understand the challenges of parallelization w/ regard to shared resources
+- Understand the mechanics of multithreading, including what is shared (code, data, files) and what is not (call stack, registers)
+- Understand the producer/consumer problem outlined in Unit 7
+- Understand the Unit 9 example code
+
+Regex:
+- Understand how to use the Matcher and Pattern class
+- Be able to produce regular expressions w/ correct syntax for a variety of situations
+- Understand situations regex are used and how they are used
+
+General Notes:
+- You will not be asked to write much code. You may be asked to write very small classes or individual small methods, but not large pieces of code.
+- You may be asked to debug code.
+- You may be asked to determine what given code DOES (what it outputs, for example)
+- To study, make sure you understand what the example code in each unit does
+- Bring in questions about this study guide to class on 4/18.
+
