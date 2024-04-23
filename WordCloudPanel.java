@@ -420,6 +420,7 @@ private void enableOtherFilters() {
     );
 }
 private void applyFilters() {
+  //Regex exmapes 
     // Regular expression patterns for each filter
     Pattern ingPattern = Pattern.compile(".*ing$");
     Pattern oughPattern = Pattern.compile(".*ough.*");
