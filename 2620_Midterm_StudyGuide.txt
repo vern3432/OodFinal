@@ -10,7 +10,7 @@ GUIs:
 - Understand the different types of listeners and know what components use what listeners
 - Understand how to use FlowLayout, GridLayout, CardLayout, BorderLayout, and GridBagLayout
 - Understand Keyboard and Mouse events and how to incorporate them into your GUIs
-- Understand basic Java 2D Graphics (the use of the paintComponent method and the Graphics object, specifically)
+- unit
 
 Design Patterns:
 - Understand the format/use cases of the design patterns presented by students

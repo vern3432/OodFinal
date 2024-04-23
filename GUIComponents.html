@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Java GUI Concepts</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  }
+  h2 {
+    color: #333;
+  }
+  p {
+    color: #666;
+  }
+  code {
+    background-color: #f0f0f0;
+    padding: 2px 4px;
+    border-radius: 4px;
+  }
+</style>
+</head>
+<body>
+
+<h2>GUI Programming</h2>
+<p>
+  There are two main methods of user interfacing using a GUI:
+  <ol>
+    <li>Dialog boxes</li>
+    <li>GUI components in a panel or frame.</li>
+  </ol>
+  We will be using the second method for the majority of our GUI programming.
+</p>
+
+<h3>Understand all the components</h3>
+<p>
+  Below are examples of different components you can use in a Java JFrame:
+</p>
+
+<h4>Buttons</h4>
+<p>
+  Example of adding a button:
+</p>
+<pre><code>
+import javax.swing.*;
+import java.awt.event.*;
+
+public class GUIDemo extends JFrame {
+  private JButton button;
+
+  public GUIDemo() {
+    super("Button Demo");
+    setLayout(new FlowLayout());
+
+    button = new JButton("Click me");
+    add(button);
+
+    // Add event listener to the button
+    button.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+        JOptionPane.showMessageDialog(null, "Button clicked");
+      }
+    });
+  }
+}
+</code></pre>
+
+<h4>Text Fields and Areas</h4>
+<p>
+  Example of adding a text field:
+</p>
+<pre><code>
+import javax.swing.*;
+import java.awt.*;
+
+public class GUIDemo extends JFrame {
+  private JTextField textField;
+
+  public GUIDemo() {
+    super("TextField Demo");
+    setLayout(new FlowLayout());
+
+    textField = new JTextField("Enter text here", 20);
+    add(textField);
+  }
+}
+</code></pre>
+
+<h4>Combo Boxes</h4>
+<p>
+  Example of adding a combo box:
+</p>
+<pre><code>
+import javax.swing.*;
+import java.awt.*;
+
+public class GUIDemo extends JFrame {
+  private JComboBox<String> comboBox;
+  private String[] colors = {"Red", "Green", "Blue"};
+
+  public GUIDemo() {
+    super("ComboBox Demo");
+    setLayout(new FlowLayout());
+
+    comboBox = new JComboBox<>(colors);
+    add(comboBox);
+  }
+}
+</code></pre>
+
+<h4>Lists</h4>
+<p>
+  Example of adding a list:
+</p>
+<pre><code>
+import javax.swing.*;
+import java.awt.*;
+
+public class GUIDemo extends JFrame {
+  private JList<String> list;
+  private String[] data = {"Item 1", "Item 2", "Item 3"};
+
+  public GUIDemo() {
+    super("List Demo");
+    setLayout(new FlowLayout());
+
+    list = new JList<>(data);
+    add(new JScrollPane(list));
+  }
+}
+</code></pre>
+
+<h4>Radio Buttons</h4>
+<p>
+  Example of adding radio buttons:
+</p>
+<pre><code>
+import javax.swing.*;
+import java.awt.*;
+
+public class GUIDemo extends JFrame {
+  private JRadioButton radioButton1;
+  private JRadioButton radioButton2;
+  private ButtonGroup buttonGroup;
+
+  public GUIDemo() {
+    super("RadioButton Demo");
+    setLayout(new FlowLayout());
+
+    radioButton1 = new JRadioButton("Option 1");
+    radioButton2 = new JRadioButton("Option 2");
+    buttonGroup = new ButtonGroup();
+    buttonGroup.add(radioButton1);
+    buttonGroup.add(radioButton2);
+    add(radioButton1);
+    add(radioButton2);
+  }
+}
+</code></pre>
+
+<h4>Checkboxes</h4>
+<p>
+  Example of adding checkboxes:
+</p>
+<pre><code>
+import javax.swing.*;
+import java.awt.*;
+
+public class GUIDemo extends JFrame {
+  private JCheckBox checkBox1;
+  private JCheckBox checkBox2;
+
+  public GUIDemo() {
+    super("CheckBox Demo");
+    setLayout(new FlowLayout());
+
+    checkBox1 = new JCheckBox("Option 1");
+    checkBox2 = new JCheckBox("Option 2");
+    add(checkBox1);
+    add(checkBox2);
+  }
+}
+</code></pre>
+
+<h4>Scroll Panes</h4>
+<p>
+  Example of adding a scroll pane:
+</p>
+<pre><code>
+import javax.swing.*;
+import java.awt.*;
+
+public class GUIDemo extends JFrame {
+  private JTextArea textArea;
+
+  public GUIDemo() {
+    super("ScrollPane Demo");
+    setLayout(new BorderLayout());
+
+    textArea = new JTextArea(10, 30);
+    JScrollPane scrollPane = new JScrollPane(textArea);
+    add(scrollPane, BorderLayout.CENTER);
+  }
+}
+</code></pre>
+
+<h4>Panels</h4>
+<p>
+  Example of adding a panel:
+</p>
+<pre><code>
+import javax.swing.*;
+import java.awt.*;
+
+public class GUIDemo extends JFrame {
+  private JPanel panel1;
+  private JPanel panel2;
+
+  public GUIDemo() {
+    super("Panel Demo");
+    setLayout(new GridLayout(2, 1));
+
+    panel1 = new JPanel();
+    panel1.setBackground(Color.RED);
+    panel1.setPreferredSize(new Dimension(200, 100));
+
+    panel2 = new JPanel();
+    panel2.setBackground(Color.BLUE);
+    panel2.setPreferredSize(new Dimension(200, 100));
+
+    add(panel1);
+    add(panel2);
+  }
+}
+</code></pre>
+
+<h4>Frames</h4>
+<p>
+  Example of creating a new JFrame:
+</p>
+<pre><code>
+import javax.swing.*;
+
+public class GUIDemo extends JFrame {
+  public GUIDemo() {
+    super("New JFrame");
+    setSize(400, 300);
+    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    setVisible(true);
+  }
+}
+</code></pre>
+
+<h4>Basic Java 2D Graphics</h4>
+<p>
+  Example of basic Java 2D graphics using <code>paintComponent</code> method and the <code>Graphics</code> object:
+</p>
+<pre><code>
+import javax.swing.*;
+import java.awt.*;
+
+public class DrawingPanel extends JPanel {
+
+  public DrawingPanel() {
+    // Set panel size
+    setPreferredSize(new Dimension(400, 300));
+  }
+
+  @Override
+  protected void paintComponent(Graphics g) {
+    super.paintComponent(g);
+    
+    // Set color
+    g.setColor(Color.RED);
+    
+    // Draw a rectangle
+    g.fillRect(50, 50, 100, 100);
+    
+    // Draw a circle
+    g.setColor(Color.BLUE);
+    g.fillOval(200, 50, 100, 100);
+    
+    // Draw a line
+    g.setColor(Color.GREEN);
+    g.drawLine(50, 200, 300, 200);
+  }
+}
+
+public class GUIDemo extends JFrame {
+
+  public GUIDemo() {
+    super("Basic 2D Graphics Demo");
+    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    
+    // Create a drawing panel
+    DrawingPanel drawingPanel = new DrawingPanel();
+    
+    // Add drawing panel to the frame
+    add(drawingPanel);
+    
+    pack();
+    setLocationRelativeTo(null); // Center the frame
+    setVisible(true);
+  }
+
+  public static void main(String[] args) {
+    SwingUtilities.invokeLater(() -> new GUIDemo());
+  }
+}
+</code></pre>
+
+</body>
+</html>
