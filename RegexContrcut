@@ -1,0 +1,70 @@
+Regular Expressions for Common Scenarios:
+
+1. Phone Number:
+Regex: ^(\\(\\d{3}\\)|\\d{3})[-.\\s]?\\d{3}[-.\\s]?\\d{4}$
+Explanation:
+- ^ asserts the start of the string.
+- (\\(\\d{3}\\)|\\d{3}) matches either a three-digit area code within parentheses or without parentheses.
+- [-.\\s]? matches an optional hyphen, period, or space.
+- \\d{3} matches exactly three digits for the phone number.
+- [-.\\s]? matches an optional hyphen, period, or space.
+- \\d{4} matches exactly four digits for the phone number.
+- $ asserts the end of the string.
+
+2. First Name, Middle Initial, and Last Name:
+Regex: ^[A-Z][a-z]+\\s[A-Z]\\.[\\sA-Z][a-z]+$
+Explanation:
+- ^ asserts the start of the string.
+- [A-Z][a-z]+ matches the first name, which starts with an uppercase letter followed by one or more lowercase letters.
+- \\s matches a single space.
+- [A-Z]\\.[\\sA-Z] matches the middle initial in the format "X.", where X is an uppercase letter, followed by a space.
+- [a-z]+ matches the last name, which starts with a lowercase letter followed by one or more lowercase letters.
+- $ asserts the end of the string.
+
+3. Complete Sentence:
+Regex: ^[A-Z].*?[.!?]$
+Explanation:
+- ^ asserts the start of the string.
+- [A-Z] matches the first character of the sentence as an uppercase letter.
+- .*? matches any characters (including newline characters) zero or more times, non-greedily.
+- [.!?] matches one of the specified punctuation marks (. ! ?).
+- $ asserts the end of the string.
+
+
+
+Regular Expressions for Additional Scenarios:
+
+1. Ending in 'ing':
+Regex: \\b\\w+ing\\b
+Explanation:
+- \\b asserts a word boundary to ensure 'ing' is a whole word.
+- \\w+ matches one or more word characters (letters, digits, or underscore) before 'ing'.
+- ing matches the literal string 'ing'.
+- \\b asserts another word boundary.
+
+2. Contain three vowels in a row:
+Regex: \\b\\w*[aeiou]{3}\\w*\\b
+Explanation:
+- \\b asserts a word boundary.
+- \\w* matches zero or more word characters before the sequence of three vowels.
+- [aeiou]{3} matches any sequence of exactly three vowels (a, e, i, o, or u).
+- \\w* matches zero or more word characters after the sequence of three vowels.
+- \\b asserts another word boundary.
+
+3. Contain exactly one vowel:
+Regex: \\b[^aeiou\\W]*[aeiou][^aeiou\\W]*\\b
+Explanation:
+- \\b asserts a word boundary.
+- [^aeiou\\W]* matches zero or more characters that are not vowels or non-word characters before the vowel.
+- [aeiou] matches exactly one vowel.
+- [^aeiou\\W]* matches zero or more characters that are not vowels or non-word characters after the vowel.
+- \\b asserts another word boundary.
+
+4. Start and end with the same letter:
+Regex: ^(\\w)\\w*\\1$
+Explanation:
+- ^ asserts the start of the string.
+- (\\w) captures the first letter in a group.
+- \\w* matches zero or more word characters after the first letter.
+- \\1 references the captured group (first letter), ensuring the string ends with the same letter.
+- $ asserts the end of the string.
