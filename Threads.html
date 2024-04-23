@@ -1,41 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Threads and Sockets Study Guide</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-    }
-    h2 {
-      color: #333;
-    }
-    ul {
-      list-style-type: none;
-      padding-left: 0;
-    }
-    li {
-      margin-bottom: 10px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Threads and Sockets in Java</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        p {
+            margin-bottom: 20px;
+        }
+        code {
+            background-color: #f9f9f9;
+            padding: 2px 4px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    </style>
 </head>
 <body>
-  <h2>Threads and Sockets Study Guide</h2>
-  <ul>
-    <li>
-      <strong>Understand the challenges of parallelization w/ regard to shared resources:</strong> Parallelization introduces challenges such as race conditions, deadlocks, and resource contention when multiple threads access shared resources concurrently.
-    </li>
-    <li>
-      <strong>Understand the mechanics of multithreading:</strong> Multithreading involves executing multiple threads concurrently within a single process. Threads share code, data, and files but have their own call stack and registers.
-    </li>
-    <li>
-      <strong>Understand the producer/consumer problem outlined in Unit 7:</strong> The producer/consumer problem is a classic synchronization problem where one or more threads produce data items and put them into a shared buffer, while other threads consume these items from the buffer. It requires synchronization mechanisms like locks or semaphores to ensure proper coordination between producers and consumers.
-    </li>
-    <li>
-      <strong>Understand the Unit 9 example code:</strong> Unit 9 likely contains example code related to threads and sockets. Understanding this code helps in grasping concepts such as socket programming, thread creation, synchronization, and communication between threads over a network.
-    </li>
-  </ul>
+    <div class="container">
+        <h1>Threads and Sockets in Java</h1>
+        <p>Threads and sockets are essential components of parallel programming in Java. Here's what you need to know:</p>
+        
+        <h2>Understanding Parallelization Challenges</h2>
+        <p>Parallelization involves executing multiple tasks simultaneously, which can introduce challenges related to shared resources such as memory, files, and data structures. Concurrent access to shared resources may lead to issues like race conditions and deadlock.</p>
+        
+        <h2>Mechanics of Multithreading</h2>
+        <p>In multithreading, threads share code and data but have their own call stack and registers. This allows them to execute concurrently while maintaining isolation at the stack and register level.</p>
+        
+        <h2>Producer/Consumer Problem</h2>
+        <p>The producer/consumer problem is a classic synchronization issue where multiple threads produce and consume data from a shared buffer. This scenario requires careful synchronization to ensure that producers and consumers do not interfere with each other's operations.</p>
+        
+        <h2>Unit 9 Example Code</h2>
+        <p>The example code from Unit 9 demonstrates multithreading and synchronization in Java. It typically involves scenarios like implementing a thread-safe queue, solving the producer/consumer problem, or performing parallel computation.</p>
+        
+        <h2>Example:</h2>
+        <p>Here's a simple Java code snippet illustrating the producer/consumer problem:</p>
+        <pre><code>import java.util.concurrent.ArrayBlockingQueue;
+
+public class ProducerConsumerExample {
+    public static void main(String[] args) {
+        ArrayBlockingQueue&lt;Integer&gt; buffer = new ArrayBlockingQueue<>(10);
+
+        Thread producer = new Thread(new Producer(buffer));
+        Thread consumer = new Thread(new Consumer(buffer));
+
+        producer.start();
+        consumer.start();
+    }
+}
+
+class Producer implements Runnable {
+    private final ArrayBlockingQueue&lt;Integer&gt; buffer;
+
+    public Producer(ArrayBlockingQueue&lt;Integer&gt; buffer) {
+        this.buffer = buffer;
+    }
+
+    @Override
+    public void run() {
+        try {
+            for (int i = 0; i < 10; i++) {
+                System.out.println("Producing: " + i);
+                buffer.put(i);
+                Thread.sleep(1000);
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+class Consumer implements Runnable {
+    private final ArrayBlockingQueue&lt;Integer&gt; buffer;
+
+    public Consumer(ArrayBlockingQueue&lt;Integer&gt; buffer) {
+        this.buffer = buffer;
+    }
+
+    @Override
+    public void run() {
+        try {
+            while (true) {
+                int value = buffer.take();
+                System.out.println("Consuming: " + value);
+                Thread.sleep(2000);
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
+        
+        <p>This example demonstrates a producer thread adding items to a shared buffer while a consumer thread removes items from the buffer, ensuring synchronization and avoiding concurrency issues.</p>
+    </div>
 </body>
 </html>

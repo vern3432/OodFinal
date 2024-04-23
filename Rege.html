@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regular Expressions in Java</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        p {
+            margin-bottom: 20px;
+        }
+        code {
+            background-color: #f9f9f9;
+            padding: 2px 4px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Regular Expressions in Java</h1>
+        <p>Regular expressions, often abbreviated as regex, are powerful tools for pattern matching and manipulation of strings in Java. Here's how to use them effectively:</p>
+        
+        <h2>Using the Matcher and Pattern Class</h2>
+        <p>In Java, regex functionality is provided by the <code>Pattern</code> and <code>Matcher</code> classes, both part of the <code>java.util.regex</code> package.</p>
+        <p>Here's an example of how to use them:</p>
+        <pre><code>import java.util.regex.*;
+
+public class RegexExample {
+    public static void main(String[] args) {
+        String text = "The quick brown fox jumps over the lazy dog";
+        String patternString = "fox";
+
+        Pattern pattern = Pattern.compile(patternString);
+        Matcher matcher = pattern.matcher(text);
+
+        if (matcher.find()) {
+            System.out.println("Found the word 'fox' in the text!");
+        } else {
+            System.out.println("Did not find the word 'fox' in the text.");
+        }
+    }
+}
+</code></pre>
+
+        <h2>Producing Regular Expressions with Correct Syntax</h2>
+        <p>Regular expressions consist of patterns used to match character combinations in strings. It's important to use correct syntax to produce effective regex. For example:</p>
+        <pre><code>// Match a sequence of digits
+String regex = "\\d+";
+
+// Match an email address
+String emailRegex = "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}";
+
+// Match a URL
+String urlRegex = "^(https?|ftp)://[a-zA-Z0-9-]+(\\.[a-zA-Z]{2,})+(\\/\\S*)?$";
+</code></pre>
+
+        <h2>Understanding Situations Regex are Used</h2>
+        <p>Regular expressions are used in various situations, including:</p>
+        <ul>
+            <li>Form validation</li>
+            <li>Data extraction from text</li>
+            <li>Search and replace operations</li>
+            <li>Text parsing and manipulation</li>
+        </ul>
+
+        <h2>Examples</h2>
+        <p>Here are some more examples of regex usage in Java:</p>
+        <ul>
+            <li>Validating email addresses</li>
+            <li>Extracting phone numbers from text</li>
+            <li>Replacing all occurrences of a word in a string</li>
+        </ul>
+
+        <p>By mastering regular expressions, you can significantly enhance your ability to work with text data in Java.</p>
+    </div>
+
+    <h2>Testing String Conditions with Regular Expressions</h2>
+<p>Regular expressions can be used to test various conditions on strings, such as:</p>
+<ul>
+    <li><strong>Contains:</strong> To check if a string contains a specific substring.</li>
+    <li><strong>Ends with:</strong> To check if a string ends with a specific suffix.</li>
+    <li><strong>Begins with:</strong> To check if a string begins with a specific prefix.</li>
+</ul>
+
+<h3>Examples:</h3>
+<p>Here are examples of regular expressions to test these conditions:</p>
+<ul>
+    <li><strong>Contains:</strong></li>
+    <pre><code>// Check if the string contains the word "apple"
+String containsRegex = ".*apple.*";</code></pre>
+    
+    <li><strong>Ends with:</strong></li>
+    <pre><code>// Check if the string ends with ".pdf"
+String endsWithRegex = ".*\\.pdf$";</code></pre>
+    
+    <li><strong>Begins with:</strong></li>
+    <pre><code>// Check if the string begins with "http://"
+String beginsWithRegex = "^http://.*";</code></pre>
+</ul>
+
+<p>These regular expressions can be used with the <code>Matcher</code> class to test the specified conditions on strings in Java.</p>
+
+</body>
+</html>
